@@ -77,7 +77,7 @@ class Devise::SessionsController < DeviseController
     # support returning empty response on GET request
     respond_to do |format|
       format.all { head :no_content }
-      format.any(*navigational_formats) { redirect_to after_sign_out_path_for(resource_name), status: Devise.responder.redirect_status }
+      format.any(*navigational_formats) { redirect_to after_sign_out_path_for(resource_name), status: Devise.responder.redirect_status, allow_other_host: true }
     end
   end
 end
